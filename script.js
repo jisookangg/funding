@@ -100,31 +100,38 @@ async function loadGoogleSheet() {
   if (!state.googleSheetCsvUrl) return;
 
   try {
-    const url = `${state.googleSheetCsvUrl}&t=${Date.now()}`;
-    const res = await fetch(url, { cache: "no-store" });
+    const urlObj = new URL(state.googleSheetCsvUrl);
+    urlObj.searchParams.set("t", Date.now());
+
+    console.log("Google Sheet URL:", urlObj.toString());
+
+    const res = await fetch(urlObj.toString(), { cache: "no-store" });
+
+    console.log("Google Sheet status:", res.status, res.ok);
 
     if (!res.ok) {
       throw new Error(`Sheet request failed: ${res.status}`);
     }
 
     const text = await res.text();
+    console.log("Google Sheet CSV:", text);
+
     const row = csvToObject(text);
 
     if (!row) {
       throw new Error("시트에서 데이터를 읽지 못했습니다.");
     }
 
-    // 첫 번째 열 이름에 붙을 수 있는 UTF-8 BOM 제거
     const cleanRow = {};
     Object.entries(row).forEach(([key, value]) => {
       cleanRow[key.replace(/^\uFEFF/, "").trim()] = value;
     });
 
+    console.log("Parsed Sheet Row:", cleanRow);
+
     ["goalAmount", "currentAmount", "supporterCount"].forEach((key) => {
       if (cleanRow[key] !== undefined && cleanRow[key] !== "") {
-        state[key] = Number(
-          String(cleanRow[key]).replace(/[^\d.-]/g, "")
-        );
+        state[key] = Number(String(cleanRow[key]).replace(/[^\d.-]/g, ""));
       }
     });
 
