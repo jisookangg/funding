@@ -1,0 +1,166 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="생일 선물 모금 페이지" />
+  <title>Birthday Fund — Quiet Comfort</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="홈으로">강지수의 생일선물 펀딩 페이지입니다<span>·</span></a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="#progress">진행 현황</a>
+      <a href="#support">후원하기</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">나만 없어 헤드폰 ㅜㅜ</p>
+        <h1>BOSE<br>QC Headphone</h1>
+        <p class="hero-description">
+          펀딩에 참여해주셔서 감사합니다.<br>
+          알차게 사용하는 모습으로 보답할게요 ~.,~ ㅎㅎ,,ㅎ
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#support">후원하기 <span>↓</span></a>
+          <a class="button ghost" id="purchase-link" href="#" target="_blank" rel="noreferrer">선물 보기 <span>↗</span></a>
+        </div>
+      </div>
+
+      <div class="hero-art reveal" aria-label="헤드폰 일러스트">
+        <img
+  class="product-photo"
+  src="assets/bose-qc.jpg"
+  alt="Bose QuietComfort Triple Black 헤드폰"
+/>
+
+      </div>
+    </section>
+
+    <section class="marquee-wrap" aria-label="응원 문구">
+      <div class="marquee">
+        <span>후원 목록은 익명으로 기록되며, 천원의 후원금도 소중해요,, ( • ᎑ • ) </span>
+        <span>후원 목록은 익명으로 기록되며, 천원의 후원금도 소중해요,, ( • ᎑ • )</span>
+	<span>후원 목록은 익명으로 기록되며, 천원의 후원금도 소중해요,, ( • ᎑ • )</span>
+	<span>후원 목록은 익명으로 기록되며, 천원의 후원금도 소중해요,, ( • ᎑ • )</span>
+      </div>
+    </section>
+
+    <section id="progress" class="section progress-section">
+      <div class="section-heading reveal">
+	<h3><b>진행 상황</b></h3>
+        <img
+  		class="progress-title-image"
+  		src="assets/thanks.jpg"
+  		alt="마음이 모이면, 목표는 가까워집니다."
+	>
+	<div class="birthday-card">
+  		<p>🎂 생일까지</p>
+  		<strong id="birthday-countdown">계산 중...</strong>
+	</div>
+      </div>
+
+      <article class="progress-card reveal">
+        <div class="progress-card-top">
+          <div>
+            <p class="muted">현재 모금액</p>
+            <p class="amount"><span id="current-amount">0</span><small>원</small></p>
+          </div>
+          <div class="goal-wrap">
+            <p class="muted">목표 금액</p>
+            <p class="goal"><span id="goal-amount">0</span>원</p>
+        </div>
+	</div>
+
+        <div class="meter" aria-label="모금 진행률">
+          <div id="meter-fill" class="meter-fill"></div>
+        </div>
+
+        <div class="progress-meta">
+          <p><strong id="progress-percent">0</strong>% 달성</p>
+          <p><strong id="remaining-amount">0</strong>원 남음</p>
+        </div>
+
+        <div class="supporter-badge">
+          <div class="avatar-stack" aria-hidden="true">
+            <span>♥</span><span>✦</span><span>☻</span>
+          </div>
+          <p><strong id="supporter-count">0</strong>명 참여 중</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="notice-section reveal">
+
+    	<div class="notice-card">
+
+        	<p class="notice-label">
+            		!! 주목 !!
+        	</p>
+
+        	<h3>
+            		입금자명을 익명으로 하시는 것을 추천드립니다.
+        	</h3>
+
+        	<p>
+			강제 안함. 그냥 구경만 하셔도 되고, 다른 선물 줘도 되고, 선물 안주셔도 됩~<br>
+			재미삼아하는거애용~
+        	</p>
+
+    	</div>
+
+   </section>
+
+
+    <section id="support" class="section support-section">
+      <div class="support-panel reveal">
+  	<div class="support-intro">
+    		<p class="eyebrow">펀딩 참여</p>
+  	</div>
+
+  	<div class="account-card">
+    		<div class="account-card-header">
+      			<span class="bank-pill" id="bank-name">은행</span>
+      			<span class="secure-note">~.,~ㅎㅎ</span>
+    		</div>
+
+    		<p class="account-number" id="account-number">000-0000-0000</p>
+    		<p class="account-holder" id="account-holder">예금주</p>
+
+    		<button id="copy-account" class="copy-button" type="button">
+      			<span>계좌번호 복사</span><span aria-hidden="true">⧉</span>
+    		</button>
+  	</div>
+	
+  	<div class="wow-card">
+		<span class="wow-tag">#MeNOW</span>
+
+    		<img
+    				id="random-wow"
+    				class="support-wow-image"
+    				src=""
+    				alt="랜덤 이미지"
+		/>
+  	</div>
+</div>
+</section>
+
+      </main>
+
+  <footer class="site-footer">
+    <p id="footer-message">Made with gratitude for a birthday wish.</p>
+    <button id="reset-preview" type="button" class="text-button" title="애니메이션 다시 보기">Replay motion ↻</button>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">계좌번호를 복사했어요.</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
