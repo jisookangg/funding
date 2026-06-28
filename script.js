@@ -1,12 +1,6 @@
 
 /**
- * ╔══════════════════════════════════════════════════════════════╗
- * ║                 EDIT ONLY THIS CONFIG BLOCK                 ║
- * ╚══════════════════════════════════════════════════════════════╝
- *
- * 1) 아래 개인 정보만 바꾸면 기본 페이지는 바로 작동합니다.
- * 2) Google Sheet 연동을 쓰려면 `googleSheetCsvUrl`에 "웹에 게시된 CSV" URL을 넣으세요.
- * 3) Sheet 열 이름: goalAmount, currentAmount, supporterCount
+
  */
 const CONFIG = {
   goalAmount: 294000,
@@ -18,11 +12,10 @@ const CONFIG = {
   accountHolder: "강지수",
 
 
-  // 예: "https://docs.google.com/spreadsheets/d/e/....../pub?output=csv"
-  // 비워 두면 위의 숫자를 사용합니다.
+  // 구글 시트 연동 
   googleSheetCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTUxkiyfKtsIkxfR7sAQeM02Rzpgpv9HgKN9iBpC8xxdtb2PFRQ-6qysuZMLvGAbCwS1VJRjW92Ynzl/pub?gid=0&single=true&output=csv",
 
-  // 선택: 실제 Bose 제품/구매 페이지 링크를 넣으세요.
+  // 제품/구매 페이지 링크
   purchaseUrl: "https://www.bose.co.kr/104/?idx=115",
 };
 
@@ -76,10 +69,6 @@ function render(animate = true) {
   setText("#thanks-message", state.thanksMessage);
   setText("#footer-message", state.footerMessage);
 
-  // const accountText = `${state.bankName} ${state.accountNumber} ${state.accountHolder}`;
-  // QR 서버를 이용해 휴대폰 카메라로 확인할 수 있는 QR을 만듭니다.
-  // $("#qr-image").src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&format=svg&data=${encodeURIComponent(accountText)}`;
-
   const buy = $("#purchase-link");
   buy.href = state.purchaseUrl || "#";
 }
@@ -88,7 +77,7 @@ function csvToObject(text) {
   const [headerLine, firstDataLine] = text.trim().split(/\r?\n/);
   if (!headerLine || !firstDataLine) return null;
 
-  // 단순 CSV 값(숫자 중심)을 위해 작성했습니다. 쉼표가 포함된 텍스트는 Sheet에서 따옴표로 저장됩니다.
+  
   const splitCsv = (line) => {
     const result = [];
     let item = "", quoted = false;
