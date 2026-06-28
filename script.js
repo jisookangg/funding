@@ -13,7 +13,7 @@ const CONFIG = {
 
 
   // 구글 시트 연동 
-  googleSheetCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTUxkiyfKtsIkxfR7sAQeM02Rzpgpv9HgKN9iBpC8xxdtb2PFRQ-6qysuZMLvGAbCwS1VJRjW92Ynzl/pub?gid=0&single=true&output=csv",
+  googleSheetCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vScSlZ9ISJVM8lrbpEj_TqqmdHJJKp5cf3jBRmIu5NyCMPqpFnz2gpR0ImUC7lGI76w0waqOJvkZm4z/pub?output=csv",
 
   // 제품/구매 페이지 링크
   purchaseUrl: "https://www.bose.co.kr/104/?idx=115",
