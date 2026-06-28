@@ -2,6 +2,7 @@
 /**
 
  */
+console.log("script.js loaded");
 const CONFIG = {
   goalAmount: 294000,
   currentAmount: 0,
