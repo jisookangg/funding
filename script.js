@@ -192,13 +192,6 @@ function replayMotion() {
   window.setTimeout(() => render(true), 120);
 }
 
-render(true);
-setupReveal();
-loadGoogleSheet();
-
-$("#copy-account").addEventListener("click", copyAccount);
-$("#reset-preview").addEventListener("click", replayMotion);
-
 
 /* ------------------------------
    랜덤 밈 이미지 (같은 이미지 연속 방지)
@@ -222,32 +215,22 @@ const wowImage = document.getElementById("random-wow");
 let previousIndex = -1;
 
 function changeWowImage() {
+  if (!wowImage || wowImages.length === 0) return;
 
-    wowImage.style.opacity = 0;
+  wowImage.style.opacity = 0;
 
-    setTimeout(() => {
+  setTimeout(() => {
+    let randomIndex;
 
-        let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * wowImages.length);
+    } while (randomIndex === previousIndex && wowImages.length > 1);
 
-        // 이전 이미지와 같으면 다시 뽑기
-        do {
-            randomIndex = Math.floor(Math.random() * wowImages.length);
-        } while (randomIndex === previousIndex);
-
-        previousIndex = randomIndex;
-
-        wowImage.src = wowImages[randomIndex];
-
-        wowImage.style.opacity = 1;
-
-    }, 600);
+    previousIndex = randomIndex;
+    wowImage.src = wowImages[randomIndex];
+    wowImage.style.opacity = 1;
+  }, 600);
 }
-
-// 첫 이미지 표시
-changeWowImage();
-
-// 5초마다 변경
-setInterval(changeWowImage, 5000);
 
 function updateBirthdayCountdown() {
   const target = new Date("2026-07-10T00:00:00+09:00");
@@ -271,5 +254,28 @@ function updateBirthdayCountdown() {
   countdown.textContent = `${days}일 ${hours}시간 ${minutes}분`;
 }
 
-updateBirthdayCountdown();
-setInterval(updateBirthdayCountdown, 60000);
+window.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM loaded");
+
+  render(true);
+  setupReveal();
+  loadGoogleSheet();
+
+  const copyButton = $("#copy-account");
+  if (copyButton) {
+    copyButton.addEventListener("click", copyAccount);
+  }
+
+  const resetButton = $("#reset-preview");
+  if (resetButton) {
+    resetButton.addEventListener("click", replayMotion);
+  }
+
+  if (wowImage) {
+    changeWowImage();
+    setInterval(changeWowImage, 5000);
+  }
+
+  updateBirthdayCountdown();
+  setInterval(updateBirthdayCountdown, 60000);
+});
