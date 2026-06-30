@@ -5,8 +5,8 @@
 console.log("script.js loaded");
 const CONFIG = {
   goalAmount: 294000,
-  currentAmount: 56000,
-  supporterCount: 3,
+  currentAmount: 102000,
+  supporterCount: 5,
 
   bankName: "우리은행",
   accountNumber: "1002-959-495249",
